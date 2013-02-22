@@ -1,0 +1,58 @@
+\setuppapersize[A4][A4]
+
+\setuplayout[backspace=1.5cm,topspace=0cm,top=1cm,
+             width=middle,height=middle,margin=0.5cm]
+
+\usetypescript[pagella,iwona][ec]
+\setupbodyfont[pagella,11pt]
+
+% \useencoding[st3]
+% \useencoding[st1]
+% \usetypescriptfile[t-type-slido]
+% \usetypescript[lido][st1]
+% \setupbodyfont[lido,11pt]
+
+\setuppagenumber[state=stop] %vypnout cisla stranek
+\setuppagenumbering[location=footer]
+
+\setupcolors[state=start] %barvy
+\definecolor[HeadColor][r=.4,g=.5,b=.6]
+\definecolor[LinkColor] [r=.4,g=.6,b=.5]
+
+\setupinteraction[state=start,color=LinkColor] %odkazy
+
+
+%seznamy
+\setupitemize[each][none,packed,broad][leftmargin=0.7em,width=0em,before={\blank[small]}]
+
+
+\define[2]\cvtitle{{\HeadColor\bfd\ss #1}\hfill\framed[location=bottom,align=flushright,frame=off,frameoffset=0em,offset=0em]{#2}{\HeadColor\textrule }}
+
+
+
+\def\cvsubject#1#2%
+  {\setupframed[width=\textwidth,align=flushleft,frame=off,bottomframe=on,
+  height=1.2em,framecolor=HeadColor,frameoffset=0em,offset=0em] 
+  \framed{#2}}
+  
+
+\definehead[cvpart][subject]
+\setuphead[subject,section][style=\bfb\ss,color=HeadColor,before=,after={\blank[small]},
+           command={\cvsubject}]
+           
+
+\def\cvsubpartB#1#2{\cvsubpart{#1 {(#2)}}} 
+
+\definehead[cvsubpart][subsubject]
+\setuphead[subsubject][style=\bf\ss,color=HeadColor,before=,after=,margin=0.8em,command=]
+
+\definehead[cvsubsubpart][subsubsubject]
+\setuphead[subsubsubject][style=\bf\ss,color=HeadColor,before=,after=,margin=2.6cm,command=]
+
+
+\setuptabulate[rule=line,before={\vskip 0.2em},after={\vskip 0.2em}]
+\definetabulate[cvtab][|w(2.6cm)f\sc|p|]
+\definetabulate[cvtabcs][|f\sc|p|]
+\define[2]\cvtabitem{\NC {\hskip 1em \sc #2} \NC #1 \NC\NR\TB[small]}
+
+
