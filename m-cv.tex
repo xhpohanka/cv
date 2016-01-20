@@ -1,6 +1,6 @@
 \setuppapersize[A4][A4]
 
-\setuplayout[backspace=1.5cm,topspace=0cm,top=1cm,
+\setuplayout[backspace=1.5cm,topspace=0cm,top=1cm, header=1.5cm,
              width=middle,height=middle,margin=0.5cm]
 
 \usetypescript[pagella,iwona][ec]
@@ -32,16 +32,16 @@
 
 \def\cvsubject#1#2%
   {\setupframed[width=\textwidth,align=flushleft,frame=off,bottomframe=on,
-  height=1.2em,framecolor=HeadColor,frameoffset=0em,offset=0em] 
+  height=1.2em,framecolor=HeadColor,frameoffset=0em,offset=0em]
   \framed{#2}}
-  
+
 
 \definehead[cvpart][subject]
 \setuphead[subject,section][style=\bfb\ss,color=HeadColor,before=,after={\blank[small]},
            command={\cvsubject}]
-           
 
-\def\cvsubpartB#1#2{\cvsubpart{#1 {(#2)}}} 
+
+\def\cvsubpartB#1#2{\cvsubpart{#1 {(#2)}}}
 
 \definehead[cvsubpart][subsubject]
 \setuphead[subsubject][style=\bf\ss,color=HeadColor,before=,after=,margin=0.8em,command=]
